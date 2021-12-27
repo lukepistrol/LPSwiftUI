@@ -1,6 +1,3 @@
-public struct LPSwiftUI {
-    public private(set) var text = "Hello, World!"
+import SwiftUI
 
-    public init() {
-    }
-}
+public struct LPSwiftUI {}
