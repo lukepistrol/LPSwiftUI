@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
 	/// A custom implementation of an alert which can show any view in its header
 	/// - Parameters:
 	///   - isPresented: Binding wether  alert is shown or not
@@ -40,7 +40,7 @@ extension View {
 	
 }
 
-struct LPAlert<M>: View where M: View {
+public struct LPAlert<M>: View where M: View {
 	var message: () -> M
 	var isPresented: Binding<Bool>
 	var actions: Array<LPAlertAction>
@@ -51,7 +51,7 @@ struct LPAlert<M>: View where M: View {
 		self.actions = actions
 	}
 	
-	var body: some View {
+	public var body: some View {
 		VStack(spacing: 0) {
 			message()
 				.padding(.bottom)
@@ -71,8 +71,8 @@ struct LPAlert<M>: View where M: View {
 		.padding(.horizontal, 30)
 	}
 	
-	struct LPAlertAction: Identifiable {
-		var id = UUID()
+	public struct LPAlertAction: Identifiable {
+		public var id = UUID()
 		var title: String
 		var role: Style
 		var action: () -> Void
