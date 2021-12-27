@@ -11,11 +11,13 @@ import SwiftUI
 ///
 /// Recommended use inside '.safeAreaInset(edge: .bottom)'  on a ScrollView or List
 struct LPBottomToolbarModifier: ViewModifier {
+	var height: Double
 	func body(content: Content) -> some View {
 		content
 			.padding(.vertical, 8)
 			.padding(.horizontal)
 			.frame(maxWidth: .infinity, alignment: .center)
+			.frame(height: height)
 			.background(
 				Rectangle()
 					.foregroundStyle(.regularMaterial)
@@ -30,7 +32,7 @@ extension View {
 	///
 	/// Recommended use inside '.safeAreaInset(edge: .bottom)'  on a ScrollView or List
 	/// - Returns: some View
-	func lpBottomToolbar() -> some View {
-		modifier(LPBottomToolbarModifier())
+	func lpBottomToolbar(height: Double = 50) -> some View {
+		modifier(LPBottomToolbarModifier(height: height))
 	}
 }
