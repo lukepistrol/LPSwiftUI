@@ -10,9 +10,9 @@ import SwiftUI
 /// A Modifier which wraps the content in a view imitating a system bottom toolbar
 ///
 /// Recommended use inside '.safeAreaInset(edge: .bottom)'  on a ScrollView or List
-struct LPBottomToolbarModifier: ViewModifier {
+public struct LPBottomToolbarModifier: ViewModifier {
 	var height: Double
-	func body(content: Content) -> some View {
+	public func body(content: Content) -> some View {
 		content
 			.padding(.vertical, 8)
 			.padding(.horizontal)
@@ -27,7 +27,7 @@ struct LPBottomToolbarModifier: ViewModifier {
 	}
 }
 
-extension View {
+public extension View {
 	/// A Modifier which wraps the content in a view imitating a system bottom toolbar
 	///
 	/// Recommended use inside '.safeAreaInset(edge: .bottom)'  on a ScrollView or List
