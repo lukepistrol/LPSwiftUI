@@ -32,7 +32,7 @@ public extension View {
 	///
 	/// Recommended use inside '.safeAreaInset(edge: .bottom)'  on a ScrollView or List
 	/// - Returns: some View
-	public func lpBottomToolbar(height: Double = 50) -> some View {
+	func lpBottomToolbar(height: Double = 50) -> some View {
 		modifier(LPBottomToolbarModifier(height: height))
 	}
 }

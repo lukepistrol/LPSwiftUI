@@ -15,7 +15,7 @@ public extension View {
 	///   - message: A view to display on top of the action buttons
 	/// - Returns: some View
 	@ViewBuilder func lpAlert<M>(_ isPresented: Binding<Bool>,
-								 actions: Array<LPAlert<M>.LPAlertAction>,
+								 actions: Array<LPAlertAction>,
 								 message: @escaping () -> M) -> some View where  M : View {
 		
 		self
@@ -71,23 +71,6 @@ public struct LPAlert<M>: View where M: View {
 		.padding(.horizontal, 30)
 	}
 	
-	public struct LPAlertAction: Identifiable {
-		public var id = UUID()
-		var title: String
-		var role: Style
-		var action: () -> Void
-		
-		public init(title: String, role: Style = .primary, action: @escaping () -> Void) {
-			self.title = title
-			self.role = role
-			self.action = action
-		}
-		
-		public enum Style {
-			case cancel, primary, destructive
-		}
-	}
-	
 	/// A Button for a Custom Alert
 	private struct LPAlertButton: View {
 		
@@ -122,5 +105,22 @@ public struct LPAlert<M>: View where M: View {
 				self.hovered = isHovered
 			}
 		}
+	}
+}
+
+public struct LPAlertAction: Identifiable {
+	public var id = UUID()
+	var title: String
+	var role: Style
+	var action: () -> Void
+	
+	public init(title: String, role: Style = .primary, action: @escaping () -> Void) {
+		self.title = title
+		self.role = role
+		self.action = action
+	}
+	
+	public enum Style {
+		case cancel, primary, destructive
 	}
 }
