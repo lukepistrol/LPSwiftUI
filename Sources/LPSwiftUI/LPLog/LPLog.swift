@@ -93,9 +93,13 @@ public struct LPLog {
 	
 	
 	/// Indicates which logs are being displayed or not
+	///
+	/// - Attention: Debug logs itself only show in DEBUG build configuration. Make sure  the `-DDEBUG` flag is set in Build Configuration
 	public enum DebugLevel: Int, Comparable {
 		
 		/// lowest possible level, showing all logs
+		///
+		/// - Attention: Debug logs itself only show in DEBUG build configuration. Make sure  the `-DDEBUG` flag is set in Build Configuration
 		case debug = 0
 		
 		/// showing info, notice, success, warning & error logs
@@ -120,9 +124,13 @@ public struct LPLog {
 	}
 	
 	/// Types of logs that can be created
+	///
+	/// - Attention: Debug logs itself only show in DEBUG build configuration. Make sure  the `-DDEBUG` flag is set in Build Configuration
 	public enum Message {
 		
 		/// lowest possible level, showing all logs
+		///
+		/// - Attention: Debug logs itself only show in DEBUG build configuration. Make sure  the `-DDEBUG` flag is set in Build Configuration
 		case debug(_: String)
 		
 		/// showing info, notice, success, warning & error logs
@@ -142,9 +150,9 @@ public struct LPLog {
 	}
 }
 
+// MARK: Global Log Function
 
-
-/// Logs the given message to the console.
+/// Global function that logs the given message to the console and a local logfile
 ///
 /// If also specified in ``LPLog/Options/logToLocalFile`` logs will also be saved to a local file.
 ///
@@ -154,6 +162,8 @@ public struct LPLog {
 ///
 /// Do not change the `file`, `function` or `line` parameters, since they will
 /// reference to the location where this method was called from
+///
+/// - Attention: Debug logs itself only show in DEBUG build configuration. Make sure  the `-DDEBUG` flag is set in Build Configuration
 ///
 /// - Parameters:
 ///   - type: A ``LPLog/Message`` object containing the message as a ``String``
@@ -200,9 +210,11 @@ public func log(_ type: LPLog.Message,
 	// log depending on Message and DebugLevel
 	switch type {
 	case .debug(let message):
+#if DEBUG
 		if LPLog.Options.debugLevel <= .debug {
 			log("🚫 Debug:", message: message, stats: stats)
 		}
+#endif
 	case .info(let message):
 		if LPLog.Options.debugLevel <= .info {
 			log("ℹ️ Info:", message: message, stats: stats)

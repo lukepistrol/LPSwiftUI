@@ -3,6 +3,14 @@ import XCTest
 
 final class LPSwiftUITests: XCTestCase {
 	
+	override func setUpWithError() throws {
+		#if DEBUG
+		print("DEBUG")
+		#else
+		print("RELEASE")
+		#endif
+	}
+	
 	override func tearDownWithError() throws {
 		XCTAssert(!LPLog.getLogsFromFile().isEmpty)
 		LPLog.deleteLogFile()
