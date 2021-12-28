@@ -54,7 +54,7 @@ public struct LPAlert<M>: View where M: View {
 	public var body: some View {
 		VStack(spacing: 0) {
 			message()
-				.padding(.bottom)
+				.padding()
 			VStack(spacing: 0) {
 				ForEach(actions) { action in
 					Divider()
