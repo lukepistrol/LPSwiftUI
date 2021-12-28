@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 /// A Modifier which wraps the content in a view imitating a system bottom toolbar
 ///
 /// Recommended use inside '.safeAreaInset(edge: .bottom)'  on a ScrollView or List
@@ -27,6 +28,7 @@ public struct LPBottomToolbarModifier: ViewModifier {
 	}
 }
 
+@available(iOS 15.0, *)
 public extension View {
 	/// A Modifier which wraps the content in a view imitating a system bottom toolbar
 	///

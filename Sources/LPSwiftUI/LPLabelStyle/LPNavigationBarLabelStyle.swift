@@ -9,6 +9,7 @@ import SwiftUI
 
 // MARK: - NAVIGATION BAR LabelStyle
 
+@available(iOS 15.0, *)
 public struct LPNavigationBarLabelStyle: LabelStyle {
 	public func makeBody(configuration: Configuration) -> some View {
 		configuration.icon
@@ -17,6 +18,7 @@ public struct LPNavigationBarLabelStyle: LabelStyle {
 	}
 }
 
+@available(iOS 15.0, *)
 public extension LabelStyle where Self == LPNavigationBarLabelStyle {
 	
 	/// A label style that shows only the icon of the Label for use in a Navigation Bar or Toolbar.

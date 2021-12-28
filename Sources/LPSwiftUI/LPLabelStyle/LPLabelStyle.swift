@@ -8,7 +8,7 @@
 import SwiftUI
 
 // MARK: - CUSTOM LabelStyle
-
+@available(iOS 15.0, *)
 public struct LPLabelStyle: LabelStyle {
 	var imagePosition: ImagePosition
 	var imageFont: Font
@@ -54,6 +54,7 @@ public struct LPLabelStyle: LabelStyle {
 	}
 }
 
+@available(iOS 15.0, *)
 public extension LabelStyle where Self == LPLabelStyle {
 	
 	static private func custom(position imagePosition: LPLabelStyle.ImagePosition = .leading,

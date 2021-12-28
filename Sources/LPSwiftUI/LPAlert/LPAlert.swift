@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 public extension View {
 	/// A custom implementation of an alert which can show any view in its header
 	/// - Parameters:
@@ -40,6 +41,7 @@ public extension View {
 	
 }
 
+@available(iOS 15.0, *)
 public struct LPAlert<M>: View where M: View {
 	var message: () -> M
 	var isPresented: Binding<Bool>
