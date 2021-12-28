@@ -1,6 +1,6 @@
 //
 //  LPAlert.swift
-//  
+//  LPSwiftUI
 //
 //  Created by Lukas Pistrol on 27.12.21.
 //

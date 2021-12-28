@@ -1,6 +1,6 @@
 //
 //  LPBottomToolbar.swift
-//  
+//  LPSwiftUI
 //
 //  Created by Lukas Pistrol on 28.12.21.
 //
