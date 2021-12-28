@@ -77,13 +77,13 @@ public struct LPAlert<M>: View where M: View {
 		var role: Style
 		var action: () -> Void
 		
-		init(title: String, role: Style = .primary, action: @escaping () -> Void) {
+		public init(title: String, role: Style = .primary, action: @escaping () -> Void) {
 			self.title = title
 			self.role = role
 			self.action = action
 		}
 		
-		enum Style {
+		public enum Style {
 			case cancel, primary, destructive
 		}
 	}
