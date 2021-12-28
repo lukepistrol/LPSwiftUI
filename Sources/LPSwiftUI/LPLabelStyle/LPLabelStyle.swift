@@ -14,7 +14,6 @@ public struct LPLabelStyle: LabelStyle {
 	var imageFont: Font
 	var imageColor: Color
 	var spacing: Double
-	var renderingMode: SymbolRenderingMode?
 	
 	@ViewBuilder
 	public func makeBody(configuration: Configuration) -> some View {
@@ -23,14 +22,12 @@ public struct LPLabelStyle: LabelStyle {
 			HStack(spacing: spacing) {
 				if imagePosition == .leading {
 					configuration.icon
-						.symbolRenderingMode(renderingMode)
 						.foregroundColor(imageColor)
 						.font(imageFont)
 				}
 				configuration.title
 				if imagePosition == .trailing {
 					configuration.icon
-						.symbolRenderingMode(renderingMode)
 						.foregroundColor(imageColor)
 						.font(imageFont)
 				}
@@ -39,14 +36,12 @@ public struct LPLabelStyle: LabelStyle {
 			VStack(spacing: spacing) {
 				if imagePosition == .top {
 					configuration.icon
-						.symbolRenderingMode(renderingMode)
 						.foregroundColor(imageColor)
 						.font(imageFont)
 				}
 				configuration.title
 				if imagePosition == .bottom {
 					configuration.icon
-						.symbolRenderingMode(renderingMode)
 						.foregroundColor(imageColor)
 						.font(imageFont)
 				}
@@ -64,13 +59,11 @@ public extension LabelStyle where Self == LPLabelStyle {
 	static private func custom(position imagePosition: LPLabelStyle.ImagePosition = .leading,
 							   imageFont: Font = .body,
 							   imageColor: Color = .primary,
-							   spacing: Double = 4,
-							   renderingMode: SymbolRenderingMode? = nil) -> Self {
+							   spacing: Double = 4) -> Self {
 		LPLabelStyle(imagePosition: imagePosition,
 						 imageFont: imageFont,
 						 imageColor: imageColor,
-						 spacing: spacing,
-						 renderingMode: renderingMode)
+						 spacing: spacing)
 	}
 	
 	// MARK: Leading Icon LabelStyle
