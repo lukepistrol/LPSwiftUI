@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+#if !os(watchOS)
 @available(iOS 15.0, *)
 /// A Modifier which wraps the content in a view imitating a system bottom toolbar
 ///
@@ -38,3 +38,4 @@ public extension View {
 		modifier(LPBottomToolbarModifier(height: height))
 	}
 }
+#endif

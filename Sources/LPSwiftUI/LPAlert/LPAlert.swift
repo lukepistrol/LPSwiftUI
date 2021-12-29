@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if !os(watchOS)
 @available(iOS 15.0, *)
 public extension View {
 	/// A custom implementation of an alert which can show any view in its header
@@ -126,3 +127,4 @@ public struct LPAlertAction: Identifiable {
 		case cancel, primary, destructive
 	}
 }
+#endif
