@@ -32,7 +32,7 @@ public struct LPLog {
 	
 	/// Sets up ``LPLog`` and should be called on startup of the app
 	/// - Parameters:
-	///   - debugLevel: the ``DebugLevel``to use
+	///   - debugLevel: the ``DebugLevel`` to use
 	///   - logStats: flag to setup if stats are included in logs
 	///   - saveToFile: flag to setup if logs are saved to a local file
 	public static func setup(debugLevel: DebugLevel = .debug,
