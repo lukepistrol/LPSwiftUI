@@ -18,7 +18,6 @@ public struct LPBottomToolbarModifier: ViewModifier {
 			.padding(.vertical, 8)
 			.padding(.horizontal)
 			.frame(maxWidth: .infinity, alignment: .center)
-			.frame(height: height)
 			.background(
 				Rectangle()
 					.foregroundStyle(.regularMaterial)
