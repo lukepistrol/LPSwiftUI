@@ -210,11 +210,11 @@ public func log(_ type: LPLog.Message,
 	// log depending on Message and DebugLevel
 	switch type {
 	case .debug(let message):
-#if DEBUG
+//#if DEBUG
 		if LPLog.Options.debugLevel <= .debug {
 			log("🚫 Debug:", message: message, stats: stats)
 		}
-#endif
+//#endif
 	case .info(let message):
 		if LPLog.Options.debugLevel <= .info {
 			log("ℹ️ Info:", message: message, stats: stats)
