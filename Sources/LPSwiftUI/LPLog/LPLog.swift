@@ -30,6 +30,18 @@ public struct LPLog {
 		String("txt")
 	}
 	
+	/// Sets up ``LPLog`` and should be called on startup of the app
+	/// - Parameters:
+	///   - debugLevel: the ``DebugLevel``to use
+	///   - logStats: flag to setup if stats are included in logs
+	///   - saveToFile: flag to setup if logs are saved to a local file
+	public static func setup(debugLevel: DebugLevel = .debug,
+							 logStats: Bool = true,
+							 saveToFile: Bool = true) {
+		Options.debugLevel = debugLevel
+		Options.logStats = logStats
+		Options.logToLocalFile = saveToFile
+	}
 	
 	/// Generates a formatted String including stats about the log
 	///
@@ -68,10 +80,10 @@ public struct LPLog {
 	
 	
 	/// Options to configure logging behavior globally
-	public struct Options {
+	fileprivate struct Options {
 		
 		/// A DateFormat String
-		public static var dateFormatter = "yyyy-MM-dd HH:mm:ss:SSS"
+		fileprivate static var dateFormatter = "yyyy-MM-dd HH:mm:ss:SSS"
 		
 		/// The debug level for logs [0...5]
 		///
@@ -81,13 +93,13 @@ public struct LPLog {
 		/// - **.success:** showing success, warning & error logs (3)
 		/// - **.warning:** showing warning & error logs (4)
 		/// - **.error:** highest possible level, showing only errors (5)
-		public static var debugLevel: DebugLevel = .debug
+		fileprivate static var debugLevel: DebugLevel = .debug
 		
 		/// Flag to setup if stats are included in logs
-		public static var logStats: Bool = true
+		fileprivate static var logStats: Bool = true
 		
 		/// Flag to setup if logs are saved to a local file
-		public static var logToLocalFile: Bool = true
+		fileprivate static var logToLocalFile: Bool = true
 		
 	}
 	
@@ -210,11 +222,11 @@ public func log(_ type: LPLog.Message,
 	// log depending on Message and DebugLevel
 	switch type {
 	case .debug(let message):
-//#if DEBUG
+#if DEBUG
 		if LPLog.Options.debugLevel <= .debug {
 			log("🚫 Debug:", message: message, stats: stats)
 		}
-//#endif
+#endif
 	case .info(let message):
 		if LPLog.Options.debugLevel <= .info {
 			log("ℹ️ Info:", message: message, stats: stats)

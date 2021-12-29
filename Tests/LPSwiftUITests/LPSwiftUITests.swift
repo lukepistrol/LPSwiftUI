@@ -17,26 +17,22 @@ final class LPSwiftUITests: XCTestCase {
 	}
 	
 	func testLogsWithStats() throws {
-		LPLog.Options.logStats = true
-		LPLog.Options.debugLevel = .debug
+		LPLog.setup(debugLevel: .debug, logStats: true, saveToFile: true)
 		logAllCases()
 	}
 	
 	func testLogsWithOutStats() throws {
-		LPLog.Options.logStats = false
-		LPLog.Options.debugLevel = .debug
+		LPLog.setup(debugLevel: .debug, logStats: false, saveToFile: true)
 		logAllCases()
 	}
 	
 	func testLogsInfo() throws {
-		LPLog.Options.logStats = false
-		LPLog.Options.debugLevel = .info
+		LPLog.setup(debugLevel: .info, logStats: false, saveToFile: true)
 		logAllCases()
 	}
 	
 	func testLogsError() throws {
-		LPLog.Options.logStats = false
-		LPLog.Options.debugLevel = .error
+		LPLog.setup(debugLevel: .error, logStats: false, saveToFile: true)
 		logAllCases()
 	}
 	
