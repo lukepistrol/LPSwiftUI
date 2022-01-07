@@ -7,7 +7,10 @@
 
 import Foundation
 
-extension Data {
+public extension Data {
+	
+	/// Adds the Data to a file at the given URL
+	/// - Parameter fileURL: The URL of the file
 	func append(to fileURL: URL) throws {
 		if let fileHandle = FileHandle(forWritingAtPath: fileURL.path) {
 			defer {
