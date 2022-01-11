@@ -10,7 +10,7 @@ import SwiftUI
 #if os(iOS)
 /// A UITextView subclass with placeholder text support.
 /// It uses another UILabel to show the placeholder, shown when text is empty.
-internal class CustomTextView: UITextView {
+public class CustomTextView: UITextView {
 
 	lazy var placeholderLabel: UILabel = {
 		let label = UILabel()
