@@ -15,6 +15,12 @@ public struct LPTextView: View {
 	var minHeight: Double = 50
 	@State private var height: Double?
 
+	public init(_ text: Binding<String>, placeholder: String, minHeight: Double = 50) {
+		self._text = text
+		self.placeholder = placeholder
+		self.minHeight = minHeight
+	}
+
 	public var body: some View {
 		WrappedTextView(text: $text, placeholder: placeholder, configuration: self.didChange(_:))
 			.frame(height: height ?? minHeight)
