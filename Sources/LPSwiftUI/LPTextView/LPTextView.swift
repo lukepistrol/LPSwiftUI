@@ -49,6 +49,7 @@ fileprivate struct WrappedTextView: UIViewRepresentable {
 
 	public func makeUIView(context: Context) -> CustomTextView {
 		let view = CustomTextView()
+		view.backgroundColor = .secondarySystemGroupedBackground
 		view.isScrollEnabled = true
 		view.isEditable = true
 		view.isUserInteractionEnabled = true
@@ -86,3 +87,12 @@ fileprivate struct WrappedTextView: UIViewRepresentable {
 	}
 }
 #endif
+
+struct TextView_Previews: PreviewProvider {
+	static var previews: some View {
+		List {
+			LPTextView(.constant(""), placeholder: "Text Here...")
+		}
+		.preferredColorScheme(.dark)
+	}
+}
