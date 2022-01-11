@@ -31,7 +31,7 @@ public struct LPTextView: View {
 	}
 }
 
-public struct WrappedTextView: UIViewRepresentable {
+fileprivate struct WrappedTextView: UIViewRepresentable {
 
 	public init(text: Binding<String>,
 				placeholder: String = "",
