@@ -13,7 +13,7 @@ public struct LPListRow: View {
 
 	private var padding: Double
 
-	init(_ title: String, padding: Double = 0) {
+	public init(_ title: String, padding: Double = 0) {
 		self.title = title
 		self.padding = padding
 	}
@@ -32,7 +32,7 @@ public struct LPListLink<D>: View where D: View {
 
 	private var padding: Double
 
-	init(_ title: String, padding: Double = 0, destination: @escaping () -> D) {
+	public init(_ title: String, padding: Double = 0, destination: @escaping () -> D) {
 		self.title = title
 		self.destination = destination
 		self.padding = padding
@@ -56,7 +56,7 @@ public struct LPListRowDetail: View {
 
 	private var padding: Double
 
-	init(_ title: String, detail: String, padding: Double = 0) {
+	public init(_ title: String, detail: String, padding: Double = 0) {
 		self.title = title
 		self.detail = detail
 		self.padding = padding
@@ -82,7 +82,7 @@ public struct LPListDetailLink<D>: View where D: View {
 
 	private var padding: Double
 
-	init(_ title: String, detail: String, padding: Double = 0, destination: @escaping () -> D) {
+	public init(_ title: String, detail: String, padding: Double = 0, destination: @escaping () -> D) {
 		self.title = title
 		self.detail = detail
 		self.destination = destination
@@ -107,7 +107,7 @@ public struct LPListRowBottomDetail: View {
 
 	private var padding: Double
 
-	init(_ title: String, detail: String, padding: Double = 4) {
+	public init(_ title: String, detail: String, padding: Double = 4) {
 		self.title = title
 		self.detail = detail
 		self.padding = padding
@@ -132,7 +132,7 @@ public struct LPListBottomDetailLink<D>: View where D: View {
 
 	private var padding: Double
 
-	init(_ title: String, detail: String, padding: Double = 4, destination: @escaping () -> D) {
+	public init(_ title: String, detail: String, padding: Double = 4, destination: @escaping () -> D) {
 		self.title = title
 		self.detail = detail
 		self.destination = destination
