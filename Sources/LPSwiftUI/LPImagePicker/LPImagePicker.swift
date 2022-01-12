@@ -28,7 +28,7 @@ public struct LPImagePicker: UIViewControllerRepresentable {
 	public func makeUIViewController(context: Context) -> UIImagePickerController {
 		let picker = UIImagePickerController()
 		picker.delegate = context.coordinator
-		picker.allowsEditing = true
+		picker.allowsEditing = scaledSize == nil ? false : true
 		picker.sourceType = sourceType
 		return picker
 	}
@@ -53,14 +53,14 @@ public extension LPImagePicker {
 				if let scaledSize = parent.scaledSize {
 					self.parent.image = image.cropped().scale(to: scaledSize)
 				} else {
-					self.parent.image = image
+					self.parent.image = image.scale(to: CGSize(width: 300, height: 300))
 				}
 				picker.dismiss(animated: true)
 			} else if let image = info[.originalImage] as? UIImage {
 				if let scaledSize = parent.scaledSize {
 					self.parent.image = image.cropped().scale(to: scaledSize)
 				} else {
-					self.parent.image = image
+					self.parent.image = image.scale(to: CGSize(width: 300, height: 300))
 				}
 				picker.dismiss(animated: true)
 			}
