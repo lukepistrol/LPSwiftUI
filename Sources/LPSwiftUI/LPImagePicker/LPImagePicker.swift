@@ -56,14 +56,14 @@ public extension LPImagePicker {
 				if parent.cropped {
 					self.parent.image = image.cropped().scale(to: parent.scaledSize)
 				} else {
-					self.parent.image = image.scale(to: CGSize(width: 300, height: 300))
+					self.parent.image = image.scale(to: parent.scaledSize)
 				}
 				picker.dismiss(animated: true)
 			} else if let image = info[.originalImage] as? UIImage {
 				if parent.cropped {
 					self.parent.image = image.cropped().scale(to: parent.scaledSize)
 				} else {
-					self.parent.image = image.scale(to: CGSize(width: 300, height: 300))
+					self.parent.image = image.scale(to: parent.scaledSize)
 				}
 				picker.dismiss(animated: true)
 			}
