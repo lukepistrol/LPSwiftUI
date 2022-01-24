@@ -33,6 +33,7 @@ public struct LPImagePicker: UIViewControllerRepresentable {
 		picker.delegate = context.coordinator
 		picker.allowsEditing = cropped ? true : false
 		picker.sourceType = sourceType
+
 		return picker
 	}
 	

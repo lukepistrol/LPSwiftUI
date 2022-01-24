@@ -86,7 +86,6 @@ fileprivate struct WrappedTextView: UIViewRepresentable {
 		}
 	}
 }
-#endif
 
 struct TextView_Previews: PreviewProvider {
 	static var previews: some View {
@@ -96,3 +95,4 @@ struct TextView_Previews: PreviewProvider {
 		.preferredColorScheme(.dark)
 	}
 }
+#endif
