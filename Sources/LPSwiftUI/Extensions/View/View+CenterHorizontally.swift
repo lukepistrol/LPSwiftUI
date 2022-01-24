@@ -8,6 +8,7 @@
 import SwiftUI
 
 public extension View {
+	/// Centers the view in a HStack
 	func centeredHorizontally() -> some View {
 		HStack {
 			Spacer()
@@ -16,6 +17,7 @@ public extension View {
 		}
 	}
 
+	/// Equal to `frame(maxWidth: .infinity)`
 	func infiniteWidth() -> some View {
 		self.frame(maxWidth: .infinity)
 	}
