@@ -59,9 +59,9 @@ public struct LPLog {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = Options.dateFormatter
 		if Thread.isMainThread {
-			return "[M] [\(dateFormatter.string(from: .now))] [\(fileString.lastPathComponent): \(function), line:\(line)]:\n\t →"
+			return "[\(dateFormatter.string(from: .now))] ▶︎ [M] ▶︎ [\(fileString.lastPathComponent): \(function), line:\(line)]:\n\t →"
 		} else {
-			return "[!=M] [\(dateFormatter.string(from: .now))] [\(fileString.lastPathComponent): \(function), line:\(line)]:\n\t →"
+			return "[\(dateFormatter.string(from: .now))] ▶︎ [!M] ▶︎ [\(fileString.lastPathComponent): \(function), line:\(line)]:\n\t →"
 		}
 	}
 	
@@ -201,7 +201,7 @@ public func log(_ type: LPLog.Message,
 	///   - stats: a formatted String containing info about time, and code location
 	func log(_ prefix: String, message: String, stats: String) {
 		// generate log message
-		let log: String = prefix + String.space + (LPLog.Options.logStats ? (stats + String.space) : String.empty) + message
+		let log: String = (LPLog.Options.logStats ? (stats + String.space) : String.empty) + prefix + String.space + message
 		
 		// print to console
 		print(log)

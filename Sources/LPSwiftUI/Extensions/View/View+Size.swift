@@ -11,10 +11,9 @@ public extension View {
 	/// Convenience Method for setting a views width
 	///
 	/// **Usage:**
-	/// ```
-	/// Text("Hello")
-	///     .width(100)
-	/// ```
+	///
+	///     Text("Hello")
+	///       .width(100)
 	func width(_ width: Double) -> some View {
 		self.frame(width: width)
 	}
@@ -22,10 +21,9 @@ public extension View {
 	/// Convenience Method for setting a views height
 	///
 	/// **Usage:**
-	/// ```
-	/// Text("Hello")
-	///     .height(100)
-	/// ```
+	///
+	///     Text("Hello")
+	///       .height(100)
 	func height(_ height: Double) -> some View {
 		self.frame(height: height)
 	}
@@ -33,10 +31,9 @@ public extension View {
 	/// Convenience Method for setting a views frame
 	///
 	/// **Usage:**
-	/// ```
-	/// Text("Hello")
-	///     .size(w: 100, h: 100)
-	/// ```
+	///
+	///     Text("Hello")
+	///       .size(w: 100, h: 100)
 	func size(w width: Double, h height: Double) -> some View {
 		self.frame(width: width, height: height)
 	}
