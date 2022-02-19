@@ -59,9 +59,9 @@ public struct LPLog {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = Options.dateFormatter
 		if Thread.isMainThread {
-			return "[\(dateFormatter.string(from: .now))] ▶︎ [M] ▶︎ [\(fileString.lastPathComponent): \(function), line:\(line)]:\n\t →"
+			return "\(dateFormatter.string(from: .now)) ▶︎ [M] ▶︎ \(fileString.lastPathComponent): \(function), line: \(line)\n\t▶︎"
 		} else {
-			return "[\(dateFormatter.string(from: .now))] ▶︎ [!M] ▶︎ [\(fileString.lastPathComponent): \(function), line:\(line)]:\n\t →"
+			return "\(dateFormatter.string(from: .now)) ▶︎ [!M] ▶︎ \(fileString.lastPathComponent): \(function), line: \(line)\n\t▶︎"
 		}
 	}
 	
@@ -224,28 +224,28 @@ public func log(_ type: LPLog.Message,
 	case .debug(let message):
 #if DEBUG
 		if LPLog.Options.debugLevel <= .debug {
-			log("🚫 Debug:", message: message, stats: stats)
+			log("🚫 Debug ▶︎", message: message, stats: stats)
 		}
 #endif
 	case .info(let message):
 		if LPLog.Options.debugLevel <= .info {
-			log("ℹ️ Info:", message: message, stats: stats)
+			log("ℹ️ Info ▶︎", message: message, stats: stats)
 		}
 	case .notice(let message):
 		if LPLog.Options.debugLevel <= .notice {
-			log("✳️ Notice:", message: message, stats: stats)
+			log("✳️ Notice ▶︎", message: message, stats: stats)
 		}
 	case .success(let message):
 		if LPLog.Options.debugLevel <= .success {
-			log("✅ Success:", message: message, stats: stats)
+			log("✅ Success ▶︎", message: message, stats: stats)
 		}
 	case .warning(let message):
 		if LPLog.Options.debugLevel <= .warning {
-			log("⚠️ Warning:", message: message, stats: stats)
+			log("⚠️ Warning ▶︎", message: message, stats: stats)
 		}
 	case .error(let message):
 		if LPLog.Options.debugLevel <= .error {
-			log("🛑 Error:", message: message, stats: stats)
+			log("🛑 Error ▶︎", message: message, stats: stats)
 		}
 	}
 
