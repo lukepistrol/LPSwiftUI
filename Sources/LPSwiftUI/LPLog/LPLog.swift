@@ -43,6 +43,7 @@ public struct LPLog {
 		Options.debugLevel = debugLevel
 		Options.logStats = logStats
 		Options.logToLocalFile = saveToFile
+		Options.separator = separator
 	}
 	
 	/// Generates a formatted String including stats about the log
