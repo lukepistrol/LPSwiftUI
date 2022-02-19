@@ -59,9 +59,9 @@ public struct LPLog {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = Options.dateFormatter
 		if Thread.isMainThread {
-			return "\(dateFormatter.string(from: .now)) ▶︎ [M] ▶︎ \(fileString.lastPathComponent): \(function), line: \(line)\n\t▶︎"
+			return "\(dateFormatter.string(from: .now)) ▶︎ [M] ▶︎ \(fileString.lastPathComponent): \(function), line: \(line)\n\t"
 		} else {
-			return "\(dateFormatter.string(from: .now)) ▶︎ [!M] ▶︎ \(fileString.lastPathComponent): \(function), line: \(line)\n\t▶︎"
+			return "\(dateFormatter.string(from: .now)) ▶︎ [!M] ▶︎ \(fileString.lastPathComponent): \(function), line: \(line)\n\t"
 		}
 	}
 	
@@ -191,7 +191,7 @@ public func log(_ type: LPLog.Message,
 		dateFormatter.dateFormat = LPLog.Options.dateFormatter
 		let timeString: String = dateFormatter.string(from: .now)
 		let url = LPLog.logfileUrl
-		try (timeString + ": " + message).appendLineToURL(fileURL: url)
+		try (message).appendLineToURL(fileURL: url)
 	}
 	
 	/// Logs the given parameters formatted to the console
@@ -201,7 +201,7 @@ public func log(_ type: LPLog.Message,
 	///   - stats: a formatted String containing info about time, and code location
 	func log(_ prefix: String, message: String, stats: String) {
 		// generate log message
-		let log: String = (LPLog.Options.logStats ? (stats + String.space) : String.empty) + prefix + String.space + message
+		let log: String = (LPLog.Options.logStats ? (stats + String.space) : String.empty) + prefix + String.tab + message
 		
 		// print to console
 		print(log)
@@ -224,28 +224,28 @@ public func log(_ type: LPLog.Message,
 	case .debug(let message):
 #if DEBUG
 		if LPLog.Options.debugLevel <= .debug {
-			log("🚫 Debug ▶︎", message: message, stats: stats)
+			log("🚫 Debug:", message: message, stats: stats)
 		}
 #endif
 	case .info(let message):
 		if LPLog.Options.debugLevel <= .info {
-			log("ℹ️ Info ▶︎", message: message, stats: stats)
+			log("ℹ️ Info:", message: message, stats: stats)
 		}
 	case .notice(let message):
 		if LPLog.Options.debugLevel <= .notice {
-			log("✳️ Notice ▶︎", message: message, stats: stats)
+			log("✳️ Notice:", message: message, stats: stats)
 		}
 	case .success(let message):
 		if LPLog.Options.debugLevel <= .success {
-			log("✅ Success ▶︎", message: message, stats: stats)
+			log("✅ Success:", message: message, stats: stats)
 		}
 	case .warning(let message):
 		if LPLog.Options.debugLevel <= .warning {
-			log("⚠️ Warning ▶︎", message: message, stats: stats)
+			log("⚠️ Warning:", message: message, stats: stats)
 		}
 	case .error(let message):
 		if LPLog.Options.debugLevel <= .error {
-			log("🛑 Error ▶︎", message: message, stats: stats)
+			log("🛑 Error:", message: message, stats: stats)
 		}
 	}
 

@@ -13,7 +13,13 @@ public extension String {
 	
 	/// Returns an empty String
 	static var empty: String { String("") }
-	
+
+	/// Returns a linebreak character
+	static var newLine: String { String("\n") }
+
+	/// Returns a tab character
+	static var tab: String { String("\t") }
+
 	/// Returns the decimal separator for the current `Locale`
 	///
 	/// e.g: For US this returns "."
