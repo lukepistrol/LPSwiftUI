@@ -35,9 +35,11 @@ public struct LPLog {
 	///   - debugLevel: the ``DebugLevel`` to use
 	///   - logStats: flag to setup if stats are included in logs
 	///   - saveToFile: flag to setup if logs are saved to a local file
+	///   - separator: the separator used in the logging message (defaults to '▶︎')
 	public static func setup(debugLevel: DebugLevel = .debug,
 							 logStats: Bool = true,
-							 saveToFile: Bool = true) {
+							 saveToFile: Bool = true,
+							 separator: String = "▶︎") {
 		Options.debugLevel = debugLevel
 		Options.logStats = logStats
 		Options.logToLocalFile = saveToFile
@@ -59,9 +61,9 @@ public struct LPLog {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = Options.dateFormatter
 		if Thread.isMainThread {
-			return "\(dateFormatter.string(from: .now)) ▶︎ [M] ▶︎ \(fileString.lastPathComponent): \(function), line: \(line)\n\t"
+			return "\(dateFormatter.string(from: .now)) \(Options.separator) [M] \(Options.separator) \(fileString.lastPathComponent): \(function), line: \(line)\n\t"
 		} else {
-			return "\(dateFormatter.string(from: .now)) ▶︎ [!M] ▶︎ \(fileString.lastPathComponent): \(function), line: \(line)\n\t"
+			return "\(dateFormatter.string(from: .now)) \(Options.separator) [!M] \(Options.separator) \(fileString.lastPathComponent): \(function), line: \(line)\n\t"
 		}
 	}
 	
@@ -100,6 +102,9 @@ public struct LPLog {
 		
 		/// Flag to setup if logs are saved to a local file
 		fileprivate static var logToLocalFile: Bool = true
+
+		/// Separator String
+		fileprivate static var separator: String = "▶︎"
 		
 	}
 	
@@ -201,7 +206,7 @@ public func log(_ type: LPLog.Message,
 	///   - stats: a formatted String containing info about time, and code location
 	func log(_ prefix: String, message: String, stats: String) {
 		// generate log message
-		let log: String = (LPLog.Options.logStats ? (stats + String.space) : String.empty) + prefix + String.tab + message
+		let log: String = (LPLog.Options.logStats ? (stats + String.space) : String.empty) + prefix + String.space + message
 		
 		// print to console
 		print(log)
