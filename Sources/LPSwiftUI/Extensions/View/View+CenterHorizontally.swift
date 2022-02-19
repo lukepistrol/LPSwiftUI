@@ -18,7 +18,9 @@ public extension View {
 	}
 
 	/// Equal to `frame(maxWidth: .infinity)`
-	func infiniteWidth() -> some View {
-		self.frame(maxWidth: .infinity)
+	/// - Parameter alignment: Alignment of the content
+	/// - Returns: some View
+	func infiniteWidth(_ alignment: Alignment = .center) -> some View {
+		self.frame(maxWidth: .infinity, alignment: alignment)
 	}
 }
