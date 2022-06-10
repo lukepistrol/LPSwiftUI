@@ -10,6 +10,7 @@ import SwiftUI
 import PhotosUI
 
 /// An Image Picker to pick images from photos
+@available(iOS, deprecated: 16.0, message: "Use PhotosUI's `PhotosPicker` instead")
 public struct LPImagePicker: UIViewControllerRepresentable {
 	
 	@Binding private var image: UIImage?
