@@ -5,7 +5,7 @@
 //  Created by Lukas Pistrol on 07.01.22.
 //
 
-#if !os(macOS)
+#if !os(macOS) && !os(watchOS)
 import UIKit
 
 public extension UIImage {
